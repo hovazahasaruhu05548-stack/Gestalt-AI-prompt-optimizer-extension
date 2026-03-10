@@ -1,0 +1,97 @@
+{
+  "manifest_version": 3,
+  "name": "Gestalt - AI Prompt Optimizer",
+  "version": "2.1.0",
+  "description": "让AI对话更专业 - RAG增强·智能推理·多模态支持·一键优化提示词",
+  "author": "Gestalt Project",
+  "homepage_url": "https://github.com/zlan-lang/Gestalt--Al-Prompt-Optimizer",
+  "permissions": [
+    "storage",
+    "sidePanel",
+    "activeTab",
+    "scripting",
+    "contextMenus",
+    "tabs" 
+  ],
+  "host_permissions": [
+    "https://*.google.com/*",
+    "https://*.chatgpt.com/*",
+    "https://chatgpt.com/*",
+    "https://*.openai.com/*",
+    "https://*.claude.ai/*",
+    "https://claude.ai/*",
+    "https://*.deepseek.com/*",
+    "https://deepseek.com/*",
+    "https://*.perplexity.ai/*",
+    "https://*.moonshot.cn/*",
+    "https://*.baidu.com/*",
+    "https://*.aliyun.com/*",
+    "https://*.microsoft.com/*",
+    "https://*.bing.com/*",
+    "https://*.doubao.com/*",
+    "https://*.suno.com/*",
+    "https://*.volcengine.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://gemini.google.com/*",
+        "https://chatgpt.com/*",
+        "https://*.chatgpt.com/*",
+        "https://chat.openai.com/*",
+        "https://*.openai.com/*",
+        "https://claude.ai/*",
+        "https://*.claude.ai/*",
+        "https://*.deepseek.com/*",
+        "https://*.perplexity.ai/*",
+        "https://*.moonshot.cn/*",
+        "https://*.baidu.com/*",
+        "https://*.aliyun.com/*",
+        "https://copilot.microsoft.com/*",
+        "https://*.bing.com/*",
+        "https://*.doubao.com/*",
+        "https://*.suno.com/*"
+      ],
+      "js": ["content.js", "content-inject.js", "simple-insert.js"],
+      "css": ["content.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "commands": {
+    "open-gestalt": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "mac": "Command+Shift+Y"
+      },
+      "description": "打开 Gestalt 侧边栏"
+    },
+    "save-prompt": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S",
+        "mac": "Command+Shift+S"
+      },
+      "description": "快速保存选中的提示词"
+    }
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "action": {
+    "default_title": "Gestalt - 点击打开优化面板",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png",
+    "256": "icons/icon256.png"
+  },
+  "options_page": "options.html"
+}
